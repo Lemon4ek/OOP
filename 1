@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class hexagon
+{
+    float side;
+    float S;
+    public:
+    hexagon();
+    hexagon(float side);
+    ~hexagon();
+    void Parametr(float side);
+    void Formula();
+    void Print_sqrt();
+};
+
+hexagon::hexagon ()
+{
+    side=0;
+    cout << "Constructor without parametr\n" <<endl;
+}
+
+hexagon::~hexagon ()
+{
+cout << "Deconstructor"<<endl;
+}
+hexagon::hexagon (float a)
+{
+    side = a;
+    S = 0;
+    cout << "Constructor with parametr: "<< a <<"\n"<< endl;
+}
+
+void hexagon::Parametr(float a)
+{
+    side = a;
+}
+
+void hexagon::Formula()
+{
+    S = ((3*sqrt(3))/2)*(side*side);
+    cout << "S = " << S << "\n"<<endl;
+}
+
+void hexagon::Print_sqrt()
+{
+    cout << "Side a: "<< side <<"\n"<< "S: "<< S << "\n" << endl;
+}
+
+int main()
+{
+    if(true){
+hexagon b;
+
+b.Parametr(1);
+
+b.Formula();
+
+b.Print_sqrt();
+
+}
+}
