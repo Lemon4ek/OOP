@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+using namespace std;
+
+class Hexagon
+{
+    float side;
+    float area;
+
+    public:
+
+    Hexagon()
+    {
+        side=0;
+        area=0;
+    }
+    Hexagon(float a)
+    {
+
+        side = a;
+        area = 0;
+        calc();
+    }
+    void setSide(float a)
+    {
+        side = a;
+    }
+    void calc()
+    {
+        area = ((3*sqrt(3))/2)*(side*side);
+    }
+
+    friend ostream &operator<<(ostream &t, Hexagon &obj)
+    {
+    t << "\nside\t" << obj.side << "\narea\t" << obj.area ;
+    return t;
+    }
+
+
+    void getArea()
+    {
+        cout << "\n "<<area ;
+    }
+    void getSide()
+    {
+        cout << "\n "<<side ;
+    }
+
+    friend Hexagon operator + (Hexagon &s,Hexagon &c);
+
+};
+
+Hexagon operator + (Hexagon &s,Hexagon &c)
+    {
+    Hexagon temp;
+    temp.area = s.area + c.area;
+    temp.side = s.side + c.side;
+    return temp;
+
+    }
+int main()
+{
+  Hexagon c;
+  Hexagon a(7);
+  Hexagon b(7);
+  cout << b  ;
+  c=a+b;
+  c.getArea() ;
+  c.getSide() ;
+
+}
