@@ -1,0 +1,110 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+// Визначаємо базовий клас Товар
+class Goods
+{
+int price;
+string manufacturer;
+string category; // категорія
+public:
+void set_price(int num) { price = num; }
+int get_price() { return price; }
+void set_category(string text) { category = text; }
+string get_category() { return category; }
+void set_manufacturer(string text) { manufacturer = text; }
+string get_manufacturer() { return manufacturer; }
+};
+
+// Визначаємо клас іграшка
+class Toy : public Goods
+{
+string toytype; // категорія іграшки
+public:
+Toy(){string toytype="";}
+~Toy(){}
+void set_toytype(string text) { toytype = text; }
+string get_toytype() { return toytype; }
+void show ();
+};
+// Визначаємо клас продукт
+class Product : public Goods
+{
+string producttype; // категорія продуктку
+public:
+Product(){string producttype="";}
+~Product(){}
+void set_producttype(string text) { producttype = text; }
+string get_producttype() { return producttype; }
+void show ();
+};
+// Визначаємо клас молочний продукт
+class MilkProduct : public Goods
+{
+int date;
+string milkproducttype; // категорія продуктку
+public:
+MilkProduct(){string milkproducttype="";}
+~MilkProduct(){}
+void set_date(int num) { date = num; }
+int get_date() { return date; }
+void set_milkproducttype(string text) { milkproducttype = text; }
+string get_milkproducttype() { return milkproducttype; }
+void show ();
+};
+
+void Toy::show()
+{
+cout<<"Категорія товару: "<< get_category()  <<endl;
+cout<<"Тип: "<<  toytype  <<endl;
+cout<<"Виробник: "<<  get_manufacturer() <<endl;
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+void Product::show()
+{
+cout<<"Категорія товару: "<< get_category()    <<endl;
+cout<<"Тип: "<<  producttype  <<endl;
+cout<<"Виробник: "<< get_manufacturer()   <<endl;
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+void MilkProduct::show()
+{
+cout<<"Категорія товару: "<<  get_category()   <<endl;
+cout<<"Тип: "<<  milkproducttype  <<endl;
+cout<<"Виробник: "<<  get_manufacturer() <<endl;
+cout<<"Дата виготовлення: "<<  date  <<endl;
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+int main()
+{
+        if(true){
+SetConsoleOutputCP(1251);
+
+Goods f;
+
+Toy a;
+Product b;
+MilkProduct c;
+
+a.set_category("Іграшки");
+a.set_toytype("Машинка на пульті");
+a.set_manufacturer("Китай");
+a.set_price(900);
+
+b.set_category("Продукт");
+b.set_producttype("Мівіна");
+b.set_manufacturer("Україна");
+b.set_price(10);
+
+c.set_category("Продукт молочний");
+c.set_milkproducttype("Творог");
+c.set_manufacturer("Україна");
+c.set_date(25092022);
+c.set_price(10);
+
+a.show();
+b.show();
+c.show();
+        }
+}
